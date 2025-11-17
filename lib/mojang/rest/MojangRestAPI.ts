@@ -56,9 +56,6 @@ export interface UpptimeSummary {
 export class MojangRestAPI {
 
     private static readonly logger = LoggerUtil.getLogger('Mojang')
-
-    private static readonly TIMEOUT = 2500
-
     public static readonly AUTH_ENDPOINT = 'https://auth.miray-tech.ru/auth'
     public static readonly STATUS_ENDPOINT = 'https://raw.githubusercontent.com/AventiumSoftworks/helios-status-page/master/history/summary.json'
 

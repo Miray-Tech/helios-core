@@ -1,7 +1,7 @@
-import { ChildProcess, fork, ForkOptions } from 'child_process'
-import { join } from 'path'
-import { DownloadTransmission, FullRepairReply, ValidateTransmission } from './receivers/FullRepairReceiver'
-import { LoggerUtil } from '../util/LoggerUtil'
+import {ChildProcess, fork, ForkOptions} from 'child_process'
+import {join} from 'path'
+import {DownloadTransmission, FullRepairReply, ValidateTransmission} from './receivers/FullRepairReceiver'
+import {LoggerUtil} from '../util/LoggerUtil'
 
 const log = LoggerUtil.getLogger('Transmitter')
 
@@ -21,12 +21,10 @@ abstract class BaseTransmitter {
 
         if(additionalEnvVars) {
             // Copy and enrich current env
-            const forkEnv: NodeJS.ProcessEnv = {
+            forkOptions.env = {
                 ...JSON.parse(JSON.stringify(process.env)) as NodeJS.ProcessEnv,
                 ...additionalEnvVars
             }
-
-            forkOptions.env = forkEnv
         }
 
         this.receiver = fork(join(__dirname, 'receivers', 'ReceiverExecutor.js'), [ this.receiverName() ], forkOptions)
