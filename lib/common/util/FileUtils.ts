@@ -1,7 +1,7 @@
 import { createHash } from 'crypto'
 import { dirname, join } from 'path'
 import { pathExists, createReadStream, remove, unlink } from 'fs-extra'
-import { LoggerUtil } from '../..//util/LoggerUtil'
+import { LoggerUtil } from '../../util/LoggerUtil'
 import { StreamZipAsync } from 'node-stream-zip'
 import StreamZip from 'node-stream-zip'
 import { createGunzip } from 'zlib'

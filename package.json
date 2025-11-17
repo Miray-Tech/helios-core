@@ -1,5 +1,5 @@
 {
-  "name": "helios-core",
+  "name": "helios-core-miray-tech",
   "version": "2.2.4",
   "description": "A library containing core mechanisms for Helios Launcher",
   "main": "dist/index.js",
@@ -88,7 +88,7 @@
     "luxon": "^3.5.0",
     "node-stream-zip": "^1.15.0",
     "semver": "^7.7.1",
-    "tar-fs": "^3.0.8",
+    "tar-fs": "^3.1.1",
     "triple-beam": "^1.4.1",
     "winreg": "^1.2.5",
     "winston": "^3.17.0"
