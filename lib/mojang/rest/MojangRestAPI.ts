@@ -102,36 +102,6 @@ export class MojangRestAPI {
                 status: MojangStatusColor.GREY,
                 name: 'Mojang Accounts Website',
                 essential: false
-            },
-            {
-                service: 'microsoft-o-auth-server',
-                status: MojangStatusColor.GREY,
-                name: 'Microsoft OAuth Server',
-                essential: true
-            },
-            {
-                service: 'xbox-live-auth-server',
-                status: MojangStatusColor.GREY,
-                name: 'Xbox Live Auth Server',
-                essential: true
-            },
-            {
-                service: 'xbox-live-gatekeeper', // Server used to give XTokens
-                status: MojangStatusColor.GREY,
-                name: 'Xbox Live Gatekeeper',
-                essential: true
-            },
-            {
-                service: 'microsoft-minecraft-api',
-                status: MojangStatusColor.GREY,
-                name: 'Minecraft API for Microsoft Accounts',
-                essential: true
-            },
-            {
-                service: 'microsoft-minecraft-profile',
-                status: MojangStatusColor.GREY,
-                name: 'Minecraft Profile for Microsoft Accounts',
-                essential: false
             }
         ]
     }

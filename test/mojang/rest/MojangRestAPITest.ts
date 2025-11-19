@@ -41,8 +41,7 @@ describe('[Mojang Rest API] Errors', () => {
 
         nock(MojangRestAPI.AUTH_ENDPOINT)
             .post('/authenticate')
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            .reply(403, (uri, requestBody: unknown): { error: string, errorMessage: string } => {
+            .reply(403, (): { error: string, errorMessage: string } => {
                 return {
                     error: 'ForbiddenOperationException',
                     errorMessage: 'Invalid credentials. Invalid username or password.'
@@ -83,7 +82,7 @@ describe('[Mojang Rest API] Auth', () => {
 
         nock(MojangRestAPI.AUTH_ENDPOINT)
             .post('/authenticate')
-            .reply(200, (uri, requestBody: AuthPayload): Session => {
+            .reply(200, (requestBody: AuthPayload): Session => {
                 const mockResponse: Session = {
                     accessToken: 'abc',
                     clientToken: requestBody.clientToken!,
@@ -115,7 +114,7 @@ describe('[Mojang Rest API] Auth', () => {
         nock(MojangRestAPI.AUTH_ENDPOINT)
             .post('/validate')
             .times(2)
-            .reply((uri, requestBody: any) => {
+            .reply((requestBody: any) => {
                 return [
                     requestBody.accessToken === 'abc' ? 204 : 403
                 ]
@@ -151,7 +150,7 @@ describe('[Mojang Rest API] Auth', () => {
 
         nock(MojangRestAPI.AUTH_ENDPOINT)
             .post('/refresh')
-            .reply(200, (uri, requestBody: any): Session => {
+            .reply(200, (requestBody: any): Session => {
                 const mockResponse: Session = {
                     accessToken: 'abc',
                     clientToken: requestBody.clientToken as string,
@@ -183,7 +182,7 @@ describe('[Mojang Rest API] Auth', () => {
 const summaryResponse = [
     {
         name: 'Mojang Multiplayer Session Service',
-        url: 'http://session.minecraft.net',
+        url: 'https://session.minecraft.net',
         icon: 'https://icons.duckduckgo.com/ip3/session.minecraft.net.ico',
         slug: 'mojang-multiplayer-session-service',
         status: 'up',
@@ -334,114 +333,6 @@ const summaryResponse = [
             '2022-04-05': 11,
             '2022-03-16': 89,
             '2022-02-28': 5
-        }
-    },
-    {
-        name: 'Microsoft OAuth Server',
-        url: 'https://login.microsoftonline.com/consumers/oauth2/v2.0/token',
-        icon: 'https://icons.duckduckgo.com/ip3/login.microsoftonline.com.ico',
-        slug: 'microsoft-o-auth-server',
-        status: 'up',
-        uptime: '100.00%',
-        uptimeDay: '100.00%',
-        uptimeWeek: '100.00%',
-        uptimeMonth: '100.00%',
-        uptimeYear: '100.00%',
-        time: 390,
-        timeDay: 637,
-        timeWeek: 287,
-        timeMonth: 361,
-        timeYear: 390,
-        dailyMinutesDown: {}
-    },
-    {
-        name: 'Xbox Live auth server',
-        url: 'https://user.auth.xboxlive.com/user/authenticate',
-        icon: 'https://icons.duckduckgo.com/ip3/user.auth.xboxlive.com.ico',
-        slug: 'xbox-live-auth-server',
-        status: 'up',
-        uptime: '100.00%',
-        uptimeDay: '100.00%',
-        uptimeWeek: '100.00%',
-        uptimeMonth: '100.00%',
-        uptimeYear: '100.00%',
-        time: 207,
-        timeDay: 170,
-        timeWeek: 263,
-        timeMonth: 250,
-        timeYear: 205,
-        dailyMinutesDown: {}
-    },
-    {
-        name: 'Xbox Live Gatekeeper',
-        url: 'https://xsts.auth.xboxlive.com/xsts/authorize',
-        icon: 'https://icons.duckduckgo.com/ip3/xsts.auth.xboxlive.com.ico',
-        slug: 'xbox-live-gatekeeper',
-        status: 'up',
-        uptime: '100.00%',
-        uptimeDay: '100.00%',
-        uptimeWeek: '100.00%',
-        uptimeMonth: '100.00%',
-        uptimeYear: '100.00%',
-        time: 217,
-        timeDay: 130,
-        timeWeek: 131,
-        timeMonth: 138,
-        timeYear: 216,
-        dailyMinutesDown: {}
-    },
-    {
-        name: 'Microsoft Minecraft API',
-        url: 'https://api.minecraftservices.com/authentication/login_with_xbox',
-        icon: 'https://icons.duckduckgo.com/ip3/api.minecraftservices.com.ico',
-        slug: 'microsoft-minecraft-api',
-        status: 'up',
-        uptime: '99.88%',
-        uptimeDay: '100.00%',
-        uptimeWeek: '100.00%',
-        uptimeMonth: '100.00%',
-        uptimeYear: '99.88%',
-        time: 593,
-        timeDay: 164,
-        timeWeek: 176,
-        timeMonth: 201,
-        timeYear: 603,
-        dailyMinutesDown: {
-            '2022-08-30': 26,
-            '2022-07-20': 34,
-            '2022-07-09': 7,
-            '2022-06-30': 14,
-            '2022-06-17': 6,
-            '2022-05-19': 23,
-            '2022-05-16': 24,
-            '2022-04-08': 7,
-            '2022-03-27': 29,
-            '2022-03-16': 88,
-            '2022-01-18': 33
-        }
-    },
-    {
-        name: 'Microsoft Minecraft Profile',
-        url: 'https://api.minecraftservices.com/minecraft/profile',
-        icon: 'https://icons.duckduckgo.com/ip3/api.minecraftservices.com.ico',
-        slug: 'microsoft-minecraft-profile',
-        status: 'up',
-        uptime: '99.93%',
-        uptimeDay: '100.00%',
-        uptimeWeek: '100.00%',
-        uptimeMonth: '100.00%',
-        uptimeYear: '99.93%',
-        time: 140,
-        timeDay: 27,
-        timeWeek: 42,
-        timeMonth: 48,
-        timeYear: 143,
-        dailyMinutesDown: {
-            '2022-08-30': 26,
-            '2022-07-20': 34,
-            '2022-06-17': 6,
-            '2022-05-19': 8,
-            '2022-03-16': 86
         }
     }
 ]

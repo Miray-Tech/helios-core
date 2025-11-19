@@ -1,6 +1,6 @@
 {
   "name": "helios-core-miray-tech",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "A library containing core mechanisms for Helios Launcher",
   "main": "dist/index.js",
   "scripts": {
@@ -17,7 +17,6 @@
     "./common": "./dist/common.js",
     "./dl": "./dist/dl.js",
     "./java": "./dist/java.js",
-    "./microsoft": "./dist/microsoft.js",
     "./mojang": "./dist/mojang.js"
   },
   "typesVersions": {
@@ -33,9 +32,6 @@
       ],
       "java": [
         "./dist/java.d.ts"
-      ],
-      "microsoft": [
-        "./dist/microsoft.d.ts"
       ],
       "mojang": [
         "./dist/mojang.d.ts"
