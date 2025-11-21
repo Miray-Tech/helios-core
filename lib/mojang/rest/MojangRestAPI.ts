@@ -100,7 +100,7 @@ export class MojangRestAPI {
             {
                 service: 'mojang-accounts-website',
                 status: MojangStatusColor.GREY,
-                name: 'Mojang Accounts Website',
+                name: 'Miray Tech Accounts Website',
                 essential: false
             }
         ]
